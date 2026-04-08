@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Retail Vendor Program — The Sisters' Couch Healing Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --green:#2C4A3E;
+  --green-mid:#3D6B5C;
+  --green-pale:#EAF0EC;
+  --terra:#C4622D;
+  --terra-light:#D4835A;
+  --blush:#E8C5B0;
+  --blush-pale:#F5E9DF;
+  --cream:#FAF6F0;
+  --cream-dark:#F0E9DF;
+  --taupe:#9E8F82;
+  --taupe-light:#C5B9AF;
+  --text:#1E2D28;
+  --border:#DDD4C8;
+  --white:#FFFFFF;
+}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--cream);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+/* ── NAV ─────────────────────────────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(44,74,62,0.97);
+  backdrop-filter:blur(8px);
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  height:60px;
+  border-bottom:1px solid rgba(232,197,176,0.2);
+}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.95rem;font-weight:400;
+  color:var(--cream);letter-spacing:0.1em;text-transform:uppercase;
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  font-size:0.72rem;font-weight:500;
+  letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--blush);text-decoration:none;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--cream)}
+.nav-cta{
+  background:var(--terra);color:var(--cream);
+  padding:0.45rem 1.1rem;border-radius:2px;
+  font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s;white-space:nowrap;
+}
+.nav-cta:hover{background:var(--terra-light)}
+
+/* ── HERO ─────────────────────────────────────────────────────── */
+.hero{
+  background:var(--green);
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:60px;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 110% 50%, rgba(196,98,45,0.12) 0%, transparent 60%);
+  pointer-events:none;
+}
+
+/* decorative botanical line art */
+.hero-deco{
+  position:absolute;right:0;top:0;bottom:0;width:50%;
+  opacity:0.06;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 600'%3E%3Ccircle cx='200' cy='300' r='280' fill='none' stroke='%23FAF6F0' stroke-width='0.5'/%3E%3Ccircle cx='200' cy='300' r='220' fill='none' stroke='%23FAF6F0' stroke-width='0.5'/%3E%3Ccircle cx='200' cy='300' r='160' fill='none' stroke='%23FAF6F0' stroke-width='0.5'/%3E%3Ccircle cx='200' cy='300' r='100' fill='none' stroke='%23FAF6F0' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-size:contain;background-repeat:no-repeat;background-position:center;
+}
+
+.hero-left{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 5rem;
+  position:relative;z-index:1;
+  animation:fadeUp 0.9s ease both;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:0.75rem;
+  font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--blush);margin-bottom:1.5rem;
+}
+.hero-eyebrow::before{
+  content:'';display:block;
+  width:28px;height:1px;background:var(--terra);
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,4.5vw,4rem);
+  font-weight:400;line-height:1.1;
+  color:var(--cream);margin-bottom:1.5rem;
+}
+.hero h1 em{
+  font-style:italic;color:var(--blush);
+}
+
+.hero-desc{
+  font-size:0.95rem;font-weight:300;
+  color:rgba(232,197,176,0.85);
+  max-width:420px;margin-bottom:2.5rem;line-height:1.8;
+}
+
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+
+.btn-primary{
+  display:inline-block;
+  background:var(--terra);color:var(--cream);
+  padding:0.85rem 2rem;border-radius:2px;
+  font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s,transform 0.15s;
+}
+.btn-primary:hover{background:var(--terra-light);transform:translateY(-1px)}
+
+.btn-outline{
+  display:inline-block;
+  border:1px solid rgba(232,197,176,0.4);color:var(--blush);
+  padding:0.85rem 2rem;border-radius:2px;
+  font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.2s;
+}
+.btn-outline:hover{border-color:var(--blush);color:var(--cream);background:rgba(232,197,176,0.08)}
+
+.hero-right{
+  display:flex;align-items:center;justify-content:center;
+  padding:5rem 4rem;position:relative;z-index:1;
+  animation:fadeUp 0.9s 0.2s ease both;
+}
+
+.hero-stats-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(232,197,176,0.15);
+  border-radius:4px;
+  padding:2.5rem;width:100%;max-width:380px;
+}
+
+.stats-title{
+  font-size:0.65rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--taupe);margin-bottom:1.75rem;
+  padding-bottom:1rem;border-bottom:1px solid rgba(232,197,176,0.1);
+}
+
+.stat-row{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:0.85rem 0;border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.stat-row:last-child{border-bottom:none}
+.stat-label{font-size:0.8rem;font-weight:300;color:rgba(232,197,176,0.7)}
+.stat-value{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.4rem;font-weight:500;color:var(--cream);
+}
+.stat-value span{font-family:'Jost',sans-serif;font-size:0.75rem;font-weight:300;color:var(--blush);margin-left:4px}
+
+/* ── SECTION COMMON ───────────────────────────────────────────── */
+section{padding:5rem 2rem}
+.container{max-width:1080px;margin:0 auto}
+.section-label{
+  font-size:0.65rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--terra);margin-bottom:0.75rem;
+  display:flex;align-items:center;gap:0.6rem;
+}
+.section-label::before{content:'';display:block;width:20px;height:1px;background:var(--terra)}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  font-weight:400;line-height:1.2;color:var(--green);
+  margin-bottom:1rem;
+}
+.section-desc{
+  font-size:0.95rem;font-weight:300;
+  color:var(--taupe);max-width:540px;line-height:1.8;margin-bottom:3rem;
+}
+
+/* ── ABOUT STRIP ──────────────────────────────────────────────── */
+.about-strip{
+  background:var(--white);
+  border-top:3px solid var(--terra);border-bottom:1px solid var(--border);
+  padding:3rem 2rem;
+}
+.about-grid{
+  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;
+}
+.about-item{}
+.about-item .icon{
+  width:40px;height:40px;margin-bottom:1rem;
+  background:var(--green-pale);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+.about-item .icon svg{width:18px;height:18px;stroke:var(--green);fill:none;stroke-width:1.5}
+.about-item h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem;font-weight:500;color:var(--green);margin-bottom:0.5rem;
+}
+.about-item p{font-size:0.88rem;font-weight:300;color:var(--taupe);line-height:1.75}
+
+/* ── HOW IT WORKS ─────────────────────────────────────────────── */
+.how-section{background:var(--cream)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative}
+.steps::before{
+  content:'';position:absolute;
+  top:28px;left:calc(12.5% + 14px);right:calc(12.5% + 14px);
+  height:1px;background:var(--border);
+  display:block;
+}
+.step{text-align:center;position:relative}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--white);border:1.5px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.25rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:500;color:var(--green);
+  position:relative;z-index:1;
+}
+.step.active .step-num{
+  background:var(--green);color:var(--cream);border-color:var(--green);
+}
+.step h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem;font-weight:500;color:var(--green);margin-bottom:0.4rem;
+}
+.step p{font-size:0.82rem;font-weight:300;color:var(--taupe);line-height:1.65}
+
+/* ── TERMS ────────────────────────────────────────────────────── */
+.terms-section{background:var(--green);color:var(--cream)}
+.terms-section .section-title{color:var(--cream)}
+.terms-section .section-desc{color:rgba(232,197,176,0.75)}
+.terms-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+}
+.term-card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(232,197,176,0.12);
+  border-radius:4px;padding:1.75rem;
+  transition:background 0.2s;
+}
+.term-card:hover{background:rgba(255,255,255,0.1)}
+.term-card .term-label{
+  font-size:0.65rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--blush);margin-bottom:0.6rem;
+}
+.term-card .term-value{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.75rem;font-weight:400;color:var(--cream);margin-bottom:0.5rem;
+}
+.term-card .term-detail{font-size:0.82rem;font-weight:300;color:rgba(232,197,176,0.65);line-height:1.65}
+
+/* ── EARNINGS EXAMPLE ─────────────────────────────────────────── */
+.earnings-section{background:var(--blush-pale)}
+.earnings-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.earnings-desc h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:400;color:var(--green);margin-bottom:1rem;
+}
+.earnings-desc p{font-size:0.9rem;font-weight:300;color:var(--taupe);line-height:1.8;margin-bottom:0.75rem}
+.earnings-desc .note{
+  background:var(--cream);border-left:3px solid var(--terra);
+  padding:0.9rem 1.1rem;border-radius:0 4px 4px 0;
+  font-size:0.82rem;color:var(--green);margin-top:1.25rem;line-height:1.7;
+}
+
+.earnings-table{
+  background:var(--white);border:1px solid var(--border);border-radius:4px;overflow:hidden;
+  box-shadow:0 4px 24px rgba(44,74,62,0.08);
+}
+.et-header{
+  background:var(--green);padding:1rem 1.5rem;
+  font-size:0.65rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--blush);
+}
+.et-row{
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  padding:0.85rem 1.5rem;border-bottom:1px solid var(--border);
+  font-size:0.85rem;
+}
+.et-row:last-child{border-bottom:none}
+.et-row.head{
+  background:var(--cream-dark);
+  font-size:0.7rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--taupe);
+}
+.et-row.total{background:var(--green-pale);font-weight:500}
+.et-row .tsc{color:var(--green);font-weight:500}
+.et-row .vendor{color:#185FA5;font-weight:500}
+
+/* ── WHO IT'S FOR ─────────────────────────────────────────────── */
+.who-section{background:var(--white)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+.fit-card{
+  padding:2rem;border-radius:4px;
+  border:1px solid var(--border);
+}
+.fit-card.yes{border-top:3px solid var(--green)}
+.fit-card.no{border-top:3px solid var(--border)}
+.fit-card h4{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.1rem;font-weight:500;
+  margin-bottom:1rem;
+}
+.fit-card.yes h4{color:var(--green)}
+.fit-card.no h4{color:var(--taupe)}
+.fit-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.fit-list li{
+  display:flex;align-items:flex-start;gap:0.7rem;
+  font-size:0.875rem;font-weight:300;color:var(--text);line-height:1.55;
+}
+.fit-list li::before{
+  content:'';flex-shrink:0;margin-top:5px;
+  width:8px;height:8px;border-radius:50%;
+}
+.fit-card.yes .fit-list li::before{background:var(--green)}
+.fit-card.no .fit-list li::before{background:var(--border)}
+
+/* ── CATEGORIES ───────────────────────────────────────────────── */
+.cat-section{background:var(--cream)}
+.cat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);gap:1rem;
+}
+.cat-chip{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:4px;padding:1.25rem 1rem;text-align:center;
+  transition:border-color 0.2s,transform 0.15s;
+}
+.cat-chip:hover{border-color:var(--green);transform:translateY(-2px)}
+.cat-chip .cat-icon{
+  width:36px;height:36px;border-radius:50%;background:var(--green-pale);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;
+  font-size:1rem;
+}
+.cat-chip p{font-size:0.8rem;font-weight:400;color:var(--green);line-height:1.4}
+.cat-note{
+  margin-top:1.5rem;text-align:center;
+  font-size:0.82rem;font-weight:300;color:var(--taupe);
+}
+
+/* ── FAQ ──────────────────────────────────────────────────────── */
+.faq-section{background:var(--white)}
+.faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.faq-item{
+  border:1px solid var(--border);border-radius:4px;overflow:hidden;
+}
+details summary{
+  padding:1.1rem 1.25rem;cursor:pointer;
+  font-size:0.88rem;font-weight:500;color:var(--green);
+  display:flex;justify-content:space-between;align-items:center;
+  list-style:none;
+  background:var(--white);transition:background 0.2s;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:'+';font-size:1.2rem;font-weight:200;color:var(--terra);
+  flex-shrink:0;margin-left:1rem;
+}
+details[open] summary::after{content:'−'}
+details[open] summary{background:var(--green-pale)}
+details .faq-answer{
+  padding:1rem 1.25rem 1.25rem;
+  font-size:0.85rem;font-weight:300;color:var(--taupe);line-height:1.75;
+  border-top:1px solid var(--border);background:var(--cream);
+}
+
+/* ── CTA ──────────────────────────────────────────────────────── */
+.cta-section{
+  background:var(--terra);
+  text-align:center;padding:5rem 2rem;
+}
+.cta-section .section-label{justify-content:center;color:rgba(250,246,240,0.7)}
+.cta-section .section-label::before{background:rgba(250,246,240,0.4)}
+.cta-section h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:400;
+  color:var(--cream);margin-bottom:1rem;
+}
+.cta-section p{
+  font-size:0.95rem;font-weight:300;
+  color:rgba(250,246,240,0.8);margin-bottom:2.5rem;max-width:480px;margin-inline:auto;
+  line-height:1.8;
+}
+.btn-white{
+  display:inline-block;
+  background:var(--cream);color:var(--terra);
+  padding:0.9rem 2.25rem;border-radius:2px;
+  font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  text-decoration:none;transition:background 0.2s,transform 0.15s;
+  margin:0 0.5rem;
+}
+.btn-white:hover{background:var(--white);transform:translateY(-1px)}
+.btn-ghost-white{
+  display:inline-block;
+  border:1px solid rgba(250,246,240,0.4);color:var(--cream);
+  padding:0.9rem 2.25rem;border-radius:2px;
+  font-size:0.75rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.2s;margin:0 0.5rem;
+}
+.btn-ghost-white:hover{border-color:var(--cream);background:rgba(250,246,240,0.1)}
+
+/* ── FOOTER ───────────────────────────────────────────────────── */
+footer{
+  background:var(--green);
+  padding:2.5rem 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  border-top:3px solid rgba(196,98,45,0.4);
+}
+.footer-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:0.9rem;color:var(--blush);letter-spacing:0.08em;
+}
+.footer-info{
+  font-size:0.75rem;font-weight:300;color:var(--taupe);text-align:right;line-height:1.7;
+}
+.footer-info a{color:var(--blush);text-decoration:none}
+
+/* ── ANIMATIONS ───────────────────────────────────────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{
+  opacity:1;transform:translateY(0);
+  transition:opacity 0.65s ease,transform 0.65s ease;
+}
+.reveal.animate{opacity:0;transform:translateY(20px)}
+.reveal.animate.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────── */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .hero-left{padding:4rem 2rem 4rem 2rem}
+  .about-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;gap:1.5rem}
+  .steps::before{display:none}
+  .terms-grid{grid-template-columns:1fr 1fr}
+  .earnings-grid{grid-template-columns:1fr}
+  .fit-grid{grid-template-columns:1fr}
+  .cat-grid{grid-template-columns:repeat(2,1fr)}
+  .faq-cols{grid-template-columns:1fr}
+  nav{padding:0 1.25rem}
+  .nav-links{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">The Sisters' Couch Healing Hub</div>
+  <ul class="nav-links">
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#terms">Program Terms</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="tsc_retail_vendor_application.html" class="nav-cta">Apply Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow">Retail Vendor Program</div>
+    <h1>Bring Your Products<br/>Into Our <em>Healing Space</em></h1>
+    <p class="hero-desc">The Sisters' Couch Healing Hub is home to a rotating curated collection of products from Black women-owned businesses. We provide the shelf space, the foot traffic, and the community. You provide the magic.</p>
+    <div class="hero-actions">
+      <a href="tsc_retail_vendor_application.html" class="btn-primary">Apply for a Space</a>
+      <a href="#how-it-works" class="btn-outline">Learn How It Works</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats-card">
+      <div class="stats-title">Program at a Glance</div>
+      <div class="stat-row">
+        <span class="stat-label">Admin Fee</span>
+        <span class="stat-value">$150 <span>one-time, non-refundable</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Commission</span>
+        <span class="stat-value">25% <span>of sales</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Placement Term</span>
+        <span class="stat-value">3 <span>months</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Monthly Fees</span>
+        <span class="stat-value">None <span>beyond commission</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Vendor Payout</span>
+        <span class="stat-value">15th <span>of each month</span></span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label">Vendor Slots</span>
+        <span class="stat-value">3–4 <span>per term</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT STRIP -->
+<div class="about-strip">
+  <div class="about-grid">
+    <div class="about-item reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <h3>A Home for Your Brand</h3>
+      <p>Display your products in the front of our Healing Hub at 19562 Grand River Ave in Detroit — a dedicated, curated retail space designed to showcase your work beautifully alongside other Black women-owned businesses.</p>
+    </div>
+    <div class="about-item reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      </div>
+      <h3>We Handle the Sales</h3>
+      <p>TSC staff manage all customer transactions on your behalf — so you don't have to be on-site. We process each sale, track inventory in real time, and send you a detailed monthly statement with every payout.</p>
+    </div>
+    <div class="about-item reveal">
+      <div class="icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>A 3-Month Rotation</h3>
+      <p>Each placement term is 3 months. When the term concludes, all vendor slots rotate back to the applicant pool — keeping the Retail Space fresh, giving more businesses a chance, and bringing repeat visitors back to see what's new.</p>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how-section" id="how-it-works">
+  <div class="container">
+    <div class="section-label reveal">The Process</div>
+    <h2 class="section-title reveal">How It Works</h2>
+    <p class="section-desc reveal">From application to payout, here's what to expect at every stage of your time with us.</p>
+    <div class="steps">
+      <div class="step active reveal">
+        <div class="step-num">01</div>
+        <h4>Apply</h4>
+        <p>Complete our online vendor application. Share photos of your products, your website, your customer reach, and your prior vendor experience. Applications are reviewed on a rolling basis.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <h4>Get Selected</h4>
+        <p>TSC reviews each application for wellness alignment, product quality, and category fit. You'll hear back within 10 business days. If your category is already filled for the current term, you'll be added to the waitlist.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <h4>Sign & Drop Off</h4>
+        <p>Once approved, you'll sign your Vendor Agreement, pay your $150 security deposit, and bring your products to the Hub. We'll complete a signed Product Intake Form together at drop-off.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>Sell & Get Paid</h4>
+        <p>Your products go on display and TSC manages all sales. On the 15th of each month, you receive your payout — gross sales minus the $50 rent and 25% commission — plus a full sales statement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms-section" id="terms">
+  <div class="container">
+    <div class="section-label reveal" style="color:rgba(232,197,176,0.6)">Program Terms</div>
+    <h2 class="section-title reveal">What You Need to Know</h2>
+    <p class="section-desc reveal">Simple, transparent terms designed to make this work for everyone — especially you.</p>
+    <div class="terms-grid">
+      <div class="term-card reveal">
+        <div class="term-label">Admin Fee</div>
+        <div class="term-value">$150</div>
+        <div class="term-detail">A one-time, non-refundable fee due at signing. Covers onboarding, intake, and POS setup for your full term. No monthly rent — nothing else owed beyond commission.</div>
+      </div>
+      <div class="term-card reveal">
+        <div class="term-label">Sales Commission</div>
+        <div class="term-value">25%</div>
+        <div class="term-detail">TSC retains 25% of the gross sale price of each item sold. The remaining 75% of each sale goes directly to you. No rent deducted — commission is your only ongoing cost. TSC collects and remits all sales tax.</div>
+      </div>
+      <div class="term-card reveal">
+        <div class="term-label">Placement Term</div>
+        <div class="term-value">3 months</div>
+        <div class="term-detail">All placements are 3-month terms. Terms do not renew automatically. All vendor slots rotate back to the applicant pool at term end.</div>
+      </div>
+      <div class="term-card reveal">
+        <div class="term-label">No Monthly Rent</div>
+        <div class="term-value">$0/mo</div>
+        <div class="term-detail">After your admin fee, there are no recurring monthly charges. Your only ongoing obligation is the 25% commission on each item sold — paid from your proceeds automatically.</div>
+      </div>
+      <div class="term-card reveal">
+        <div class="term-label">Vendor Payout</div>
+        <div class="term-value">The 15th</div>
+        <div class="term-detail">Monthly payout on the 15th for the prior month's sales — gross sales minus 25% commission. You receive a detailed statement with every payment.</div>
+      </div>
+      <div class="term-card reveal">
+        <div class="term-label">Product Retrieval</div>
+        <div class="term-value">7 days</div>
+        <div class="term-detail">Unsold products must be picked up within 7 days of your term end date. We'll notify you 14 days in advance so you're prepared.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS EXAMPLE -->
+<section class="earnings-section">
+  <div class="container">
+    <div class="earnings-grid">
+      <div class="earnings-desc reveal">
+        <div class="section-label">Show Me the Math</div>
+        <h3>Understanding Your Payout</h3>
+        <p>Here's how it works: you pay a one-time $150 admin fee at signing — and that's it. No monthly rent, no recurring charges. TSC earns 25% commission on each sale, and you keep the rest.</p>
+        <p>The more you sell, the more everyone benefits. That's by design.</p>
+        <div class="note">
+          <strong>Over a full 3-month term</strong> — a vendor selling an average of $400/month would take home approximately <strong>$900</strong> after commission. Your $150 admin fee is your only upfront cost.
+        </div>
+      </div>
+      <div class="earnings-table reveal">
+        <div class="et-header">Monthly Earnings Example — Vendor Selling $400/month</div>
+        <div class="et-row head">
+          <span>Item</span><span>Amount</span><span>Who Gets It</span>
+        </div>
+        <div class="et-row">
+          <span>Gross Sales</span><span>$400.00</span><span>—</span>
+        </div>
+        <div class="et-row">
+          <span>TSC Commission (25%)</span><span>− $100.00</span><span class="tsc">TSC</span>
+        </div>
+        <div class="et-row total">
+          <span>Your Monthly Payout</span><span class="vendor">$300.00</span><span class="vendor">You</span>
+        </div>
+        <div class="et-row" style="font-size:0.75rem;color:#9E8F82;border-top:1px solid var(--border)">
+          <span colspan="3" style="grid-column:1/-1">TSC earns $100/mo · You earn $300/mo · 3-month term total: $900</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="who-section">
+  <div class="container">
+    <div class="section-label reveal">Who Should Apply</div>
+    <h2 class="section-title reveal">Is This the Right Fit?</h2>
+    <p class="section-desc reveal">We're a small, curated space with a specific community. The best vendor relationships are built on shared values, not just a great product.</p>
+    <div class="fit-grid">
+      <div class="fit-card yes reveal">
+        <h4>A great fit if you…</h4>
+        <ul class="fit-list">
+          <li>Own a Black women-led business</li>
+          <li>Sell non-perishable, wellness-aligned products</li>
+          <li>Have an established product line and customer base</li>
+          <li>Can keep your display stocked throughout the term</li>
+          <li>Are ready to enter a retail space without being on-site daily</li>
+          <li>Believe your products belong in a healing, culturally affirming environment</li>
+          <li>Want access to an engaged community of Black women in Detroit</li>
+        </ul>
+      </div>
+      <div class="fit-card no reveal">
+        <h4>This may not be the right fit if you…</h4>
+        <ul class="fit-list">
+          <li>Sell food, fresh items, or products with near-term expiration dates</li>
+          <li>Need to be present daily to manage your sales</li>
+          <li>Are just starting out with no established product photos or website</li>
+          <li>Sell products in a category already filled for the upcoming term</li>
+          <li>Are unable to absorb the $150 admin fee as a business expense</li>
+          <li>Are unable to pick up unsold products within 7 days of term end</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="cat-section" id="categories">
+  <div class="container">
+    <div class="section-label reveal">Product Categories</div>
+    <h2 class="section-title reveal">What We Curate</h2>
+    <p class="section-desc reveal">We accept one vendor per product category per term to keep the Retail Space varied and non-competitive. Check availability when you apply.</p>
+    <div class="cat-grid">
+      <div class="cat-chip reveal">
+        <div class="cat-icon">🕯️</div>
+        <p>Candles & Home Fragrance</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">🌿</div>
+        <p>Skincare & Body Care</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">📓</div>
+        <p>Journals, Books & Stationery</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">🖼️</div>
+        <p>Greeting Cards & Art Prints</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">👒</div>
+        <p>Apparel & Accessories</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">🔮</div>
+        <p>Crystals & Spiritual Tools</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">✨</div>
+        <p>Wellness Products & Supplements</p>
+      </div>
+      <div class="cat-chip reveal">
+        <div class="cat-icon">💛</div>
+        <p>Other Wellness-Aligned Goods</p>
+      </div>
+    </div>
+    <p class="cat-note reveal">All products must be non-perishable and wellness-aligned. TSC reserves the right to approve or decline any product category or item.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="section-label reveal">Questions</div>
+    <h2 class="section-title reveal">Frequently Asked</h2>
+    <p class="section-desc reveal">Still deciding? Here are answers to the questions we hear most often.</p>
+    <div class="faq-cols">
+      <div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Do I have to be at the Hub to sell my products?</summary>
+            <div class="faq-answer">No. TSC staff manage all customer-facing sales on your behalf. You don't need to be present. You do need to visit periodically to restock your display area — we'll reach out if inventory looks low, but restocking on your own schedule is your responsibility.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>What if my products don't sell much?</summary>
+            <div class="faq-answer">The $50 monthly rent is owed regardless of sales. If your sales don't generate enough commission to cover rent, you'll be invoiced for the difference, due within 5 business days. This is why we encourage vendors to bring a well-established product line with demonstrated demand.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Can I restock during the term?</summary>
+            <div class="faq-answer">Yes, absolutely. You can drop off restocked inventory anytime during Hub operating hours. You'll need to check in with staff and complete an updated Product Intake Form for any new items. Keeping your space well-stocked is your responsibility — and a key part of success in this program.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Can I sell items that require refrigeration?</summary>
+            <div class="faq-answer">No. TSC only accepts non-perishable products. This includes food items, fresh flowers, and any product with an expiration date occurring within the placement term. Sealed skincare with a manufacturer expiration at least 6 months out is acceptable.</div>
+          </details>
+        </div>
+      </div>
+      <div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>What happens to my unsold products at the end?</summary>
+            <div class="faq-answer">You'll be notified 14 days before your term ends. Unsold products must be picked up within 7 days of the term end date. Items not retrieved by the deadline may be donated or discarded at TSC's discretion. We want your products in your hands — please plan ahead.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Can I renew my vendor spot for another term?</summary>
+            <div class="faq-answer">Not automatically. All vendor slots rotate back to the applicant pool at the end of each 3-month term. If you'd like to participate in the next term, you're welcome to submit a new application. This rotation keeps the Retail Space fresh and gives more Black women-owned businesses the opportunity to participate.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Is TSC responsible if my products are damaged or stolen?</summary>
+            <div class="faq-answer">TSC is not liable for loss, theft, or damage to vendor inventory. The Hub takes reasonable precautions, but vendors assume this risk when delivering products. We strongly encourage all vendors to carry general liability and product liability insurance before the term begins.</div>
+          </details>
+        </div>
+        <div class="faq-item reveal">
+          <details>
+            <summary>Who sets the prices for my products?</summary>
+            <div class="faq-answer">You do. Vendors set all retail prices. You'll provide TSC with a current product price list at intake, and we'll tag everything accordingly. If you need to change a price during the term, notify us at least 5 business days in advance so we can update the system accurately.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label">Ready When You Are</div>
+    <h2>Your Products Deserve<br/>a Beautiful Home</h2>
+    <p>Applications are reviewed on a rolling basis. Slots are limited to 3–4 vendors per term. If your category is filled, we'll add you to the waitlist for the next rotation.</p>
+    <div>
+      <a href="tsc_retail_vendor_application.html" class="btn-white">Apply for a Vendor Space</a>
+      <a href="/cdn-cgi/l/email-protection#3f575a5353507f4b575a4c564c4b5a4d4c5c504a5c57115c5052" class="btn-ghost-white">Email Us a Question</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">The Sisters' Couch Healing Hub</div>
+  <div class="footer-info">
+    19562 Grand River Ave · Detroit, MI 48223<br/>
+    <a href="https://thesisterscouch.com">thesisterscouch.com</a> · <a href="/cdn-cgi/l/email-protection#e48c8188888ba4908c81978d9790819697878b91878cca878b89"><span class="__cf_email__" data-cfemail="ff979a939390bf8b979a8c968c8b9a8d8c9c908a9c97d19c9092">[email&#160;protected]</span></a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const re
