@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Retail Vendor Program — The Sisters' Couch Healing Hub</title>
+<title>Retail Vendor Program — The Sisters' Couch Wellness Hub</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet"/>
@@ -26,6 +26,7 @@ body { overflow-x: hidden; }
   --text:#1E2D28;
   --border:#DDD4C8;
   --white:#FFFFFF;
+  --header-bg:#F2EAE0;
 }
 
 html{scroll-behavior:smooth}
@@ -39,36 +40,59 @@ body{
   overflow-x:hidden;
 }
 
-/* ── NAV ─────────────────────────────────────────────────────── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  background:rgba(44,74,62,0.97);
-  backdrop-filter:blur(8px);
-  padding:0 2rem;
-  display:flex;align-items:center;justify-content:space-between;
-  height:60px;
-  border-bottom:1px solid rgba(232,197,176,0.2);
+/* ── SITE HEADER (matches Wix nav) ───────────────────────────── */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border-bottom: 1px solid rgba(44,74,62,0.08);
 }
-.nav-brand{
-  font-family:'Cormorant Garamond',serif;
-  font-size:0.95rem;font-weight:400;
-  color:var(--cream);letter-spacing:0.1em;text-transform:uppercase;
+
+.site-header-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0;
 }
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{
-  font-size:0.72rem;font-weight:500;
-  letter-spacing:0.12em;text-transform:uppercase;
-  color:var(--blush);text-decoration:none;
-  transition:color 0.2s;
+
+.site-header-logo .logo-couch {
+  color: var(--terra);
 }
-.nav-links a:hover{color:var(--cream)}
-.nav-cta{
-  background:var(--terra);color:var(--cream);
-  padding:0.45rem 1.1rem;border-radius:2px;
-  font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
-  text-decoration:none;transition:background 0.2s;white-space:nowrap;
+
+/* Hamburger icon — three horizontal lines */
+.site-header-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  padding: 4px;
 }
-.nav-cta:hover{background:var(--terra-light)}
+
+.site-header-menu span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: var(--text);
+  border-radius: 1px;
+  transition: background 0.2s;
+}
+
+.site-header-menu:hover span {
+  background: var(--terra);
+}
 
 /* ── HERO ─────────────────────────────────────────────────────── */
 .hero{
@@ -76,7 +100,7 @@ nav{
   min-height:650px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  padding-top:60px;
+  padding-top:64px;
   position:relative;
   overflow:hidden;
 }
@@ -88,7 +112,6 @@ nav{
   pointer-events:none;
 }
 
-/* decorative botanical line art */
 .hero-deco{
   position:absolute;right:0;top:0;bottom:0;width:50%;
   opacity:0.06;
@@ -210,7 +233,6 @@ section{padding:5rem 2rem}
   max-width:1080px;margin:0 auto;
   display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;
 }
-.about-item{}
 .about-item .icon{
   width:40px;height:40px;margin-bottom:1rem;
   background:var(--green-pale);border-radius:50%;
@@ -467,32 +489,31 @@ footer{
   .fit-grid{grid-template-columns:1fr}
   .cat-grid{grid-template-columns:repeat(2,1fr)}
   .faq-cols{grid-template-columns:1fr}
-  nav{padding:0 1.25rem}
-  .nav-links{display:none}
+  .site-header{padding:0 1.25rem}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-brand">The Sisters' Couch Healing Hub</div>
-  <ul class="nav-links">
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#terms">Program Terms</a></li>
-    <li><a href="#categories">Categories</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <a href="https://alandra.typeform.com/to/gwyAu3kz" class="nav-cta">Apply Now</a>
-</nav>
+<!-- SITE HEADER -->
+<header class="site-header">
+  <a href="https://www.thesisterscouch.com/" class="site-header-logo">
+    The Sisters' <span class="logo-couch">&nbsp;Couch</span>
+  </a>
+  <a href="https://www.thesisterscouch.com/" class="site-header-menu" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</header>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-deco"></div>
   <div class="hero-left">
     <div class="hero-eyebrow">Retail Vendor Program</div>
-    <h1>Bring Your Products<br/>Into Our <em>Healing Space</em></h1>
-    <p class="hero-desc">The Sisters' Couch Healing Hub is home to a rotating curated collection of products from Black women-owned businesses. We provide the shelf space, the foot traffic, and the community. You provide the magic.</p>
+    <h1>Bring Your Products<br/>Into Our <em>Wellness Space</em></h1>
+    <p class="hero-desc">The Sisters' Couch Wellness Hub is home to a rotating curated collection of products from Black women-owned businesses. We provide the shelf space, the foot traffic, and the community. You provide the magic.</p>
     <div class="hero-actions">
       <a href="https://alandra.typeform.com/to/gwyAu3kz" class="btn-primary">Apply for a Space</a>
       <a href="#how-it-works" class="btn-outline">Learn How It Works</a>
@@ -537,7 +558,7 @@ footer{
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
       <h3>A Home for Your Brand</h3>
-      <p>Display your products in the front of our Healing Hub at 19562 Grand River Ave in Detroit — a dedicated, curated retail space designed to showcase your work beautifully alongside other Black women-owned businesses.</p>
+      <p>Display your products in the front of our Wellness Hub at 19562 Grand River Ave in Detroit — a dedicated, curated retail space designed to showcase your work beautifully alongside other Black women-owned businesses.</p>
     </div>
     <div class="about-item reveal">
       <div class="icon">
@@ -576,7 +597,7 @@ footer{
       <div class="step reveal">
         <div class="step-num">03</div>
         <h4>Sign & Drop Off</h4>
-        <p>Once approved, you'll sign your Vendor Agreement, pay your $150 security deposit, and bring your products to the Hub. We'll complete a signed Product Intake Form together at drop-off.</p>
+        <p>Once approved, you'll sign your Vendor Agreement, pay your $150 admin fee, and bring your products to the Hub. We'll complete a signed Product Intake Form together at drop-off.</p>
       </div>
       <div class="step reveal">
         <div class="step-num">04</div>
@@ -627,8 +648,6 @@ footer{
     </div>
   </div>
 </section>
-
-
 
 <!-- CATEGORIES -->
 <section class="cat-section" id="categories">
@@ -751,12 +770,22 @@ footer{
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-brand">The Sisters' Couch Healing Hub</div>
+  <div class="footer-brand">The Sisters' Couch Wellness Hub</div>
   <div class="footer-info">
     19562 Grand River Ave · Detroit, MI 48223<br/>
     <a href="https://thesisterscouch.com">thesisterscouch.com</a>
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const re
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); e.target.classList.remove('animate'); }
+    else { e.target.classList.add('animate'); e.target.classList.remove('visible'); }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(r => { r.classList.add('animate'); observer.observe(r); });
+</script>
+</body>
+</html>
